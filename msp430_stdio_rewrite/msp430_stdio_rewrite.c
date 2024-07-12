@@ -4,6 +4,9 @@
 #warning "删除标记以使用默认的函数"
 #include <driverlib.h>
 #include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+
 
 #if (MSP430_ENABLE_UART_PRINTF)
 int fputc(int _c, FILE *_fp)
@@ -13,7 +16,7 @@ int fputc(int _c, FILE *_fp)
     while (
             i &&
 #error redirect            !USCI_A_UART_getInterruptStatus(USCI_A0_BASE, USCI_A_UART_TRANSMIT_INTERRUPT_FLAG)
-        ){  
+          ) {  
             i--;
     }
     if (i) {
